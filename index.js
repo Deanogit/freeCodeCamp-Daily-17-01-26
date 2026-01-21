@@ -14,3 +14,22 @@
 // A knight moves in an "L" shape: two squares in one direction (horizontal or vertical), and one square in the perpendicular direction.
 
 // This means a knight can move to up to eight possible positions, but fewer when near the edges of the board. For example, if a knight was at A1, it could only move to B3 or C2.
+
+function knightMoves(position) {
+  console.log(position);
+
+  const letters = 'ABCDEFGH';
+
+  const moves = [
+    [-2, -1],
+    [-1, -2],
+    [-2, 1],
+    [-1, 2],
+    [1, 2],
+    [2, 1],
+    [2, -1],
+    [1, -2],
+  ];
+
+  // return position;
+}
