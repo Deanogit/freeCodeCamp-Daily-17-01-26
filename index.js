@@ -15,6 +15,25 @@
 
 // This means a knight can move to up to eight possible positions, but fewer when near the edges of the board. For example, if a knight was at A1, it could only move to B3 or C2.
 
+// function knightMoves(position) {
+//   console.log(position);
+
+//   const letters = 'ABCDEFGH';
+
+//   const moves = [
+//     [-2, -1],
+//     [-1, -2],
+//     [-2, 1],
+//     [-1, 2],
+//     [1, 2],
+//     [2, 1],
+//     [2, -1],
+//     [1, -2],
+//   ];
+
+//   // return position;
+// }
+
 function knightMoves(position) {
   console.log(position);
 
@@ -31,5 +50,20 @@ function knightMoves(position) {
     [1, -2],
   ];
 
-  // return position;
+  // turn position into r,c
+
+  const rowLetter = position[0];
+  const col = position[1];
+  console.log(rowLetter, col);
+  const row = position(rowLetter);
+  console.log(row);
+
+  // loop through moves to find possible moves
+  let counter = 0;
+
+  for (let i = 0; i < moves.length; i++) {
+    if (moves[i][0] + row > 0 && moves[i][1] + col > 0) counter++;
+  }
+
+  console.log(counter);
 }
