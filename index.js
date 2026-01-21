@@ -68,11 +68,49 @@
 //   console.log(counter);
 // }
 
+// function knightMoves(position) {
+//   console.log(position);
+
+//   const letters = 'ABCDEFGH';
+
+//   const moves = [
+//     [-2, -1],
+//     [-1, -2],
+//     [-2, 1],
+//     [-1, 2],
+//     [1, 2],
+//     [2, 1],
+//     [2, -1],
+//     [1, -2],
+//   ];
+
+//   // turn position into r,c
+
+//   const rowLetter = position[0];
+//   const col = Number(position[1]);
+//   console.log(rowLetter, col);
+//   const row = letters.indexOf(position[0]) + 1;
+//   console.log(row);
+
+//   // loop through moves to find possible moves
+//   let counter = 0;
+
+//   for (let i = 0; i < moves.length; i++) {
+//     if (
+//       moves[i][0] + row > 0 &&
+//       moves[i][1] + col > 0 &&
+//       moves[i][0] + row <= 8 &&
+//       moves[i][1] + col <= 8
+//     )
+//       counter++;
+//   }
+
+//   console.log(counter);
+//   return counter;
+// }
+
 function knightMoves(position) {
-  console.log(position);
-
   const letters = 'ABCDEFGH';
-
   const moves = [
     [-2, -1],
     [-1, -2],
@@ -84,27 +122,24 @@ function knightMoves(position) {
     [1, -2],
   ];
 
-  // turn position into r,c
-
-  const rowLetter = position[0];
-  const col = Number(position[1]);
-  console.log(rowLetter, col);
+  // 1. Convert Letter to Number (0-7 index + 1 = 1-8 scale)
   const row = letters.indexOf(position[0]) + 1;
-  console.log(row);
 
-  // loop through moves to find possible moves
+  // 2. Convert Column string to a Number
+  const col = Number(position[1]);
+
   let counter = 0;
 
+  // 3. Check each L-shape move
   for (let i = 0; i < moves.length; i++) {
-    if (
-      moves[i][0] + row > 0 &&
-      moves[i][1] + col > 0 &&
-      moves[i][0] + row <= 8 &&
-      moves[i][1] + col <= 8
-    )
+    const newRow = row + moves[i][0];
+    const newCol = col + moves[i][1];
+
+    // 4. Verify the move is within the 8x8 board boundaries
+    if (newRow > 0 && newRow <= 8 && newCol > 0 && newCol <= 8) {
       counter++;
+    }
   }
 
-  console.log(counter);
   return counter;
 }
