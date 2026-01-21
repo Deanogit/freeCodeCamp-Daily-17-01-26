@@ -34,6 +34,40 @@
 //   // return position;
 // }
 
+// function knightMoves(position) {
+//   console.log(position);
+
+//   const letters = 'ABCDEFGH';
+
+//   const moves = [
+//     [-2, -1],
+//     [-1, -2],
+//     [-2, 1],
+//     [-1, 2],
+//     [1, 2],
+//     [2, 1],
+//     [2, -1],
+//     [1, -2],
+//   ];
+
+//   // turn position into r,c
+
+//   const rowLetter = position[0];
+//   const col = position[1];
+//   console.log(rowLetter, col);
+//   const row = position(rowLetter);
+//   console.log(row);
+
+//   // loop through moves to find possible moves
+//   let counter = 0;
+
+//   for (let i = 0; i < moves.length; i++) {
+//     if (moves[i][0] + row > 0 && moves[i][1] + col > 0) counter++;
+//   }
+
+//   console.log(counter);
+// }
+
 function knightMoves(position) {
   console.log(position);
 
@@ -53,17 +87,24 @@ function knightMoves(position) {
   // turn position into r,c
 
   const rowLetter = position[0];
-  const col = position[1];
+  const col = Number(position[1]);
   console.log(rowLetter, col);
-  const row = position(rowLetter);
+  const row = letters.indexOf(position[0]) + 1;
   console.log(row);
 
   // loop through moves to find possible moves
   let counter = 0;
 
   for (let i = 0; i < moves.length; i++) {
-    if (moves[i][0] + row > 0 && moves[i][1] + col > 0) counter++;
+    if (
+      moves[i][0] + row > 0 &&
+      moves[i][1] + col > 0 &&
+      moves[i][0] + row <= 8 &&
+      moves[i][1] + col <= 8
+    )
+      counter++;
   }
 
   console.log(counter);
+  return counter;
 }
